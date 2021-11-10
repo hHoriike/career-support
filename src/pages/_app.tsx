@@ -9,6 +9,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <title>静岡仕事図鑑</title>
+        <meta name="robots" content="noindex,nofollow" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
       </Head>

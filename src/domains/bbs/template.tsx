@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Header from "features/header/header";
 import SearchBar from "features/search/searchBar";
 import useUser from "features/user/useUser";
-import React from "react";
+import React, { useState } from "react";
 import styles from "./BBS.module.scss";
 import Board from "./Board";
 import usePostModal from "./postModal";
@@ -27,23 +27,30 @@ type Props = {};
 const BBSTemplate = (props: Props) => {
   const user = useUser();
   const { show, Modal } = usePostModal();
+  const [index, setIndex] = useState(1);
   return (
     <div className={styles.container}>
       <Header user={user} />
       <div className={styles.divider}>
         <div className={styles.searchBox}>
           <ul>
-            <li>
-              <FontAwesomeIcon icon={faChartLine} />
-              トレンド
+            <li className={index === 1 ? styles.active : ""}>
+              <button type="button" onClick={() => setIndex(1)}>
+                <FontAwesomeIcon icon={faChartLine} />
+                トレンド
+              </button>
             </li>
-            <li>
-              <FontAwesomeIcon icon={faFlag} />
-              新着
+            <li className={index === 2 ? styles.active : ""}>
+              <button type="button" onClick={() => setIndex(2)}>
+                <FontAwesomeIcon icon={faFlag} />
+                新着
+              </button>
             </li>
-            <li>
-              <FontAwesomeIcon icon={faClock} />
-              タイムライン
+            <li className={index === 3 ? styles.active : ""}>
+              <button type="button" onClick={() => setIndex(3)}>
+                <FontAwesomeIcon icon={faClock} />
+                タイムライン
+              </button>
             </li>
           </ul>
           <hr />
@@ -84,14 +91,14 @@ const mockBoard: BoardInfo[] = [
     id: 2,
     title:
       "メーカーの面接で、自社の商品名について質問されたのですが、うまく答えることができませんでした。",
-    view: 1300,
-    comments: 23,
+    view: 248,
+    comments: 1,
   },
   {
     id: 3,
     title:
       "国家一般職高卒程度について。 先日人事院面接を受けてきましたが自分では手応え等分からなかったため質問させていただきます。",
-    view: 1300,
-    comments: 23,
+    view: 13,
+    comments: 0,
   },
 ];
