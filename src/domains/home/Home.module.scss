@@ -1,0 +1,212 @@
+.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  gap:1rem;
+}
+
+.ArticleList {
+  max-width: 60rem;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-content: center;
+  gap: 2rem;
+  margin: 1rem;
+}
+
+.ListItemArea {
+  flex: 1;
+  min-width: 25%;
+  @media (max-width: 767px) {
+    min-width: 45%;
+  }
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background-color: #ffffff;
+  font-size: 1rem;
+  color: #888;
+  box-shadow: 0.2rem 0.2rem 0.5rem #00000044;
+  padding-bottom: 0.5rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: filter 400ms;
+  &:hover {
+    filter: brightness(0.9);
+  }
+}
+
+.ArticleThumbnail {
+  composes: ListItemArea;
+  &:hover {
+    .ImgWrap {
+      img {
+        transform: scale(1.2);
+      }
+    }
+  }
+  .ImgWrap {
+    height: 0;
+    padding-bottom: calc(100% * 3 / 4);
+    position: relative;
+    overflow: hidden;
+    img {
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transition: transform 400ms;
+    }
+  }
+  .ThumbnailBody {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 1rem;
+    .titleWrap {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      h2 {
+        flex: 1;
+        font-size: 1.1rem;
+        color: #111;
+        a:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+    hr {
+      margin-bottom: 0.5rem;
+    }
+    .tagsWrap {
+      a {
+        background-color: #353846;
+        border-radius: 0.2rem;
+        padding: 0.1rem 0.3rem;
+        margin-right: 0.2rem;
+        color: #ffffff;
+        font-size: 0.9rem;
+        &:hover {
+          filter: brightness(0.9);
+        }
+      }
+    }
+  }
+}
+
+.EmptyThumbnail {
+  flex: 1;
+  min-width: 25%;
+  @media (max-width: 767px) {
+    min-width: 45%;
+  }
+  height: 0;
+}
+
+.MockPromotion {
+  composes: ListItemArea;
+  align-items: center;
+  div {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    label {
+      display: flex;
+      flex-direction: column;
+      input {
+        border: 1px solid #aaa;
+        border-radius: 0.3rem;
+        padding: 0.2rem 0.4rem;
+      }
+    }
+    hr {
+      margin: 0.5rem 0;
+    }
+    ul {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      overflow: hidden;
+      position: relative;
+      &::after {
+        content: "";
+        background: linear-gradient(transparent 70%, #fff);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+      }
+      li {
+        display: flex;
+        flex-direction: column;
+        list-style-type: none;
+        border: 1px solid #d1cbbc;
+        padding: 0.2rem 0.4rem;
+        border-radius: 0.3rem;
+        a {
+          font-size: 0.8rem;
+        }
+      }
+    }
+    .more {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      padding: 0;
+      margin-top: 0.5rem;
+      a {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+        color: #fff;
+        background-color: #43b5c5;
+        border-radius: 0.4rem;
+        &:hover {
+          filter: brightness(0.9);
+        }
+      }
+    }
+  }
+}
+
+.searchBar {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  max-width: 35rem;
+
+  label {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    span{
+      margin-left: 1rem;
+    }
+    .searcher {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.5rem;
+      input {
+        flex: 1;
+        border: 1px solid #43b5c5;
+        border-radius: 3rem;
+        padding:0.2rem 0.5rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,84 @@
+.Header {
+  top: 0;
+  position: sticky;
+  position: -webkit-sticky;
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0 0 1rem #00000088;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1;
+  padding: 0 1rem;
+  gap: 1rem;
+  a {
+    h1 {
+      font-size: 2.5rem;
+      font-family: "Noto Serif JP", serif;
+      @media (max-width: 767px) {
+        font-size: 2rem;
+      }
+    }
+  }
+}
+
+.menu {
+  position: absolute;
+  background-color: #fff;
+  right: 0;
+  width: 10rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 1px solid #ccc;
+}
+
+.nav {
+  flex: 1;
+  font-family: "Noto Serif JP", serif;
+  font-size: 1.1rem;
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    gap: 2rem;
+    padding: 0 10%;
+    li {
+      a {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: fit-content;
+        width: -moz-fit-content;
+        &.active {
+          color: #e80;
+        }
+        svg {
+          width: 1rem;
+          margin-right: 0.2rem;
+        }
+      }
+    }
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+
+  .hamburger {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    @media (min-width: 768px) {
+      display: none;
+    }
+    button {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 1.2rem;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+.LikeButton {
+  font-size: 1.2rem;
+  color: #e88;
+  background-color: #eee;
+  border-radius: 1em;
+  padding: 0 0.5rem;
+  height: fit-content;
+  width: 4rem;
+  &:hover {
+    filter: brightness(0.9);
+  }
+  svg {
+    height: 1.1rem;
+  }
+}
